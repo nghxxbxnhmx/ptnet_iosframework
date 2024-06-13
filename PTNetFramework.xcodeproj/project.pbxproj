@@ -3,18 +3,38 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57566ACD2C115F5800EABAC3 /* PingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566ACC2C115F5800EABAC3 /* PingDTO.swift */; };
+		57566ACF2C115F6800EABAC3 /* TraceHopDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566ACE2C115F6800EABAC3 /* TraceHopDTO.swift */; };
+		57566AD12C11610700EABAC3 /* PingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566AD02C11610700EABAC3 /* PingService.swift */; };
+		57566AD32C1161DC00EABAC3 /* DnsLookUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566AD22C1161DC00EABAC3 /* DnsLookUpService.swift */; };
+		57566AD72C11724000EABAC3 /* PageLoadDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566AD62C11724000EABAC3 /* PageLoadDTO.swift */; };
+		57566AD92C11725000EABAC3 /* PageLoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566AD82C11725000EABAC3 /* PageLoadService.swift */; };
+		57566ADD2C1802B700EABAC3 /* TracerouteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566ADC2C1802B700EABAC3 /* TracerouteService.swift */; };
+		57566ADF2C18030400EABAC3 /* PortScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566ADE2C18030400EABAC3 /* PortScanService.swift */; };
 		579FD2C32C0F129400021973 /* PTNetFramework.docc in Sources */ = {isa = PBXBuildFile; fileRef = 579FD2C22C0F129400021973 /* PTNetFramework.docc */; };
 		579FD2C42C0F129400021973 /* PTNetFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 579FD2C12C0F129400021973 /* PTNetFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		579FD2CC2C0F12E000021973 /* IpConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579FD2CB2C0F12E000021973 /* IpConfigService.swift */; };
+		579FD2CF2C0F135E00021973 /* NetDiagnosis in Frameworks */ = {isa = PBXBuildFile; productRef = 579FD2CE2C0F135E00021973 /* NetDiagnosis */; };
+		579FD2D12C0F135E00021973 /* RxNetDiagnosis in Frameworks */ = {isa = PBXBuildFile; productRef = 579FD2D02C0F135E00021973 /* RxNetDiagnosis */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		57566ACC2C115F5800EABAC3 /* PingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingDTO.swift; sourceTree = "<group>"; };
+		57566ACE2C115F6800EABAC3 /* TraceHopDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceHopDTO.swift; sourceTree = "<group>"; };
+		57566AD02C11610700EABAC3 /* PingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingService.swift; sourceTree = "<group>"; };
+		57566AD22C1161DC00EABAC3 /* DnsLookUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsLookUpService.swift; sourceTree = "<group>"; };
+		57566AD62C11724000EABAC3 /* PageLoadDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLoadDTO.swift; sourceTree = "<group>"; };
+		57566AD82C11725000EABAC3 /* PageLoadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLoadService.swift; sourceTree = "<group>"; };
+		57566ADC2C1802B700EABAC3 /* TracerouteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracerouteService.swift; sourceTree = "<group>"; };
+		57566ADE2C18030400EABAC3 /* PortScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanService.swift; sourceTree = "<group>"; };
 		579FD2BE2C0F129400021973 /* PTNetFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PTNetFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		579FD2C12C0F129400021973 /* PTNetFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTNetFramework.h; sourceTree = "<group>"; };
 		579FD2C22C0F129400021973 /* PTNetFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PTNetFramework.docc; sourceTree = "<group>"; };
+		579FD2CB2C0F12E000021973 /* IpConfigService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpConfigService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -22,12 +42,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				579FD2D12C0F135E00021973 /* RxNetDiagnosis in Frameworks */,
+				579FD2CF2C0F135E00021973 /* NetDiagnosis in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		57566ACB2C115F2E00EABAC3 /* dto */ = {
+			isa = PBXGroup;
+			children = (
+				57566ACC2C115F5800EABAC3 /* PingDTO.swift */,
+				57566ACE2C115F6800EABAC3 /* TraceHopDTO.swift */,
+				57566AD62C11724000EABAC3 /* PageLoadDTO.swift */,
+			);
+			path = dto;
+			sourceTree = "<group>";
+		};
 		579FD2B42C0F129400021973 = {
 			isa = PBXGroup;
 			children = (
@@ -47,10 +79,25 @@
 		579FD2C02C0F129400021973 /* PTNetFramework */ = {
 			isa = PBXGroup;
 			children = (
+				57566ACB2C115F2E00EABAC3 /* dto */,
+				579FD2CA2C0F12CE00021973 /* services */,
 				579FD2C12C0F129400021973 /* PTNetFramework.h */,
 				579FD2C22C0F129400021973 /* PTNetFramework.docc */,
 			);
 			path = PTNetFramework;
+			sourceTree = "<group>";
+		};
+		579FD2CA2C0F12CE00021973 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				579FD2CB2C0F12E000021973 /* IpConfigService.swift */,
+				57566AD02C11610700EABAC3 /* PingService.swift */,
+				57566AD22C1161DC00EABAC3 /* DnsLookUpService.swift */,
+				57566AD82C11725000EABAC3 /* PageLoadService.swift */,
+				57566ADC2C1802B700EABAC3 /* TracerouteService.swift */,
+				57566ADE2C18030400EABAC3 /* PortScanService.swift */,
+			);
+			path = services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -81,6 +128,10 @@
 			dependencies = (
 			);
 			name = PTNetFramework;
+			packageProductDependencies = (
+				579FD2CE2C0F135E00021973 /* NetDiagnosis */,
+				579FD2D02C0F135E00021973 /* RxNetDiagnosis */,
+			);
 			productName = PTNetFramework;
 			productReference = 579FD2BE2C0F129400021973 /* PTNetFramework.framework */;
 			productType = "com.apple.product-type.framework";
@@ -108,6 +159,9 @@
 				Base,
 			);
 			mainGroup = 579FD2B42C0F129400021973;
+			packageReferences = (
+				579FD2CD2C0F135E00021973 /* XCLocalSwiftPackageReference "externallibs/netdiagnosis/NetDiagnosis" */,
+			);
 			productRefGroup = 579FD2BF2C0F129400021973 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -132,7 +186,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57566AD72C11724000EABAC3 /* PageLoadDTO.swift in Sources */,
+				579FD2CC2C0F12E000021973 /* IpConfigService.swift in Sources */,
+				57566AD32C1161DC00EABAC3 /* DnsLookUpService.swift in Sources */,
+				57566ADD2C1802B700EABAC3 /* TracerouteService.swift in Sources */,
+				57566ACF2C115F6800EABAC3 /* TraceHopDTO.swift in Sources */,
+				57566ADF2C18030400EABAC3 /* PortScanService.swift in Sources */,
+				57566ACD2C115F5800EABAC3 /* PingDTO.swift in Sources */,
 				579FD2C32C0F129400021973 /* PTNetFramework.docc in Sources */,
+				57566AD92C11725000EABAC3 /* PageLoadService.swift in Sources */,
+				57566AD12C11610700EABAC3 /* PingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,10 +353,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ftel.PTNetFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 			};
 			name = Debug;
 		};
@@ -323,10 +390,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ftel.PTNetFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
 			};
 			name = Release;
 		};
@@ -352,6 +423,24 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		579FD2CD2C0F135E00021973 /* XCLocalSwiftPackageReference "externallibs/netdiagnosis/NetDiagnosis" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = externallibs/netdiagnosis/NetDiagnosis;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		579FD2CE2C0F135E00021973 /* NetDiagnosis */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = NetDiagnosis;
+		};
+		579FD2D02C0F135E00021973 /* RxNetDiagnosis */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RxNetDiagnosis;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 579FD2B52C0F129400021973 /* Project object */;
 }
