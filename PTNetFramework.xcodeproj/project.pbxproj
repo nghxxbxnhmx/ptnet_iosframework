@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		572FB18E2C3542B4001E1DD1 /* LibraryHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FB18D2C3542B4001E1DD1 /* LibraryHandler.swift */; };
+		575019BB2C2E6A73007FCB43 /* WifiInfoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575019BA2C2E6A73007FCB43 /* WifiInfoDTO.swift */; };
+		575019BD2C2E7017007FCB43 /* IpConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575019BC2C2E7017007FCB43 /* IpConfig.swift */; };
+		575019BF2C2E779C007FCB43 /* DnsLookup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575019BE2C2E779C007FCB43 /* DnsLookup.swift */; };
+		575019C12C2E78CD007FCB43 /* PageLoadTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575019C02C2E78CD007FCB43 /* PageLoadTimer.swift */; };
+		575019C32C2E7A1C007FCB43 /* PingICMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575019C22C2E7A1C007FCB43 /* PingICMP.swift */; };
+		575019C52C2E7AA4007FCB43 /* PortScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575019C42C2E7AA4007FCB43 /* PortScan.swift */; };
+		575019C72C2E7B70007FCB43 /* Traceroute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575019C62C2E7B70007FCB43 /* Traceroute.swift */; };
 		57566ACD2C115F5800EABAC3 /* PingDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566ACC2C115F5800EABAC3 /* PingDTO.swift */; };
 		57566ACF2C115F6800EABAC3 /* TraceHopDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566ACE2C115F6800EABAC3 /* TraceHopDTO.swift */; };
 		57566AD12C11610700EABAC3 /* PingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566AD02C11610700EABAC3 /* PingService.swift */; };
@@ -15,14 +23,24 @@
 		57566AD92C11725000EABAC3 /* PageLoadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566AD82C11725000EABAC3 /* PageLoadService.swift */; };
 		57566ADD2C1802B700EABAC3 /* TracerouteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566ADC2C1802B700EABAC3 /* TracerouteService.swift */; };
 		57566ADF2C18030400EABAC3 /* PortScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57566ADE2C18030400EABAC3 /* PortScanService.swift */; };
+		575CE0062C350AE200F7620A /* PortDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575CE0052C350AE200F7620A /* PortDTO.swift */; };
 		579FD2C32C0F129400021973 /* PTNetFramework.docc in Sources */ = {isa = PBXBuildFile; fileRef = 579FD2C22C0F129400021973 /* PTNetFramework.docc */; };
 		579FD2C42C0F129400021973 /* PTNetFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 579FD2C12C0F129400021973 /* PTNetFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		579FD2CC2C0F12E000021973 /* IpConfigService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579FD2CB2C0F12E000021973 /* IpConfigService.swift */; };
 		579FD2CF2C0F135E00021973 /* NetDiagnosis in Frameworks */ = {isa = PBXBuildFile; productRef = 579FD2CE2C0F135E00021973 /* NetDiagnosis */; };
 		579FD2D12C0F135E00021973 /* RxNetDiagnosis in Frameworks */ = {isa = PBXBuildFile; productRef = 579FD2D02C0F135E00021973 /* RxNetDiagnosis */; };
+		57C426292C35E012009FE37A /* ObjectDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C426282C35E012009FE37A /* ObjectDataDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		572FB18D2C3542B4001E1DD1 /* LibraryHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryHandler.swift; sourceTree = "<group>"; };
+		575019BA2C2E6A73007FCB43 /* WifiInfoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WifiInfoDTO.swift; sourceTree = "<group>"; };
+		575019BC2C2E7017007FCB43 /* IpConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpConfig.swift; sourceTree = "<group>"; };
+		575019BE2C2E779C007FCB43 /* DnsLookup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsLookup.swift; sourceTree = "<group>"; };
+		575019C02C2E78CD007FCB43 /* PageLoadTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLoadTimer.swift; sourceTree = "<group>"; };
+		575019C22C2E7A1C007FCB43 /* PingICMP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingICMP.swift; sourceTree = "<group>"; };
+		575019C42C2E7AA4007FCB43 /* PortScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScan.swift; sourceTree = "<group>"; };
+		575019C62C2E7B70007FCB43 /* Traceroute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traceroute.swift; sourceTree = "<group>"; };
 		57566ACC2C115F5800EABAC3 /* PingDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingDTO.swift; sourceTree = "<group>"; };
 		57566ACE2C115F6800EABAC3 /* TraceHopDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceHopDTO.swift; sourceTree = "<group>"; };
 		57566AD02C11610700EABAC3 /* PingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingService.swift; sourceTree = "<group>"; };
@@ -31,10 +49,12 @@
 		57566AD82C11725000EABAC3 /* PageLoadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageLoadService.swift; sourceTree = "<group>"; };
 		57566ADC2C1802B700EABAC3 /* TracerouteService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracerouteService.swift; sourceTree = "<group>"; };
 		57566ADE2C18030400EABAC3 /* PortScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortScanService.swift; sourceTree = "<group>"; };
+		575CE0052C350AE200F7620A /* PortDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortDTO.swift; sourceTree = "<group>"; };
 		579FD2BE2C0F129400021973 /* PTNetFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PTNetFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		579FD2C12C0F129400021973 /* PTNetFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTNetFramework.h; sourceTree = "<group>"; };
 		579FD2C22C0F129400021973 /* PTNetFramework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = PTNetFramework.docc; sourceTree = "<group>"; };
 		579FD2CB2C0F12E000021973 /* IpConfigService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IpConfigService.swift; sourceTree = "<group>"; };
+		57C426282C35E012009FE37A /* ObjectDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectDataDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,12 +70,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5720118C2C291EC600D1D332 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		575019B92C2E6A23007FCB43 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				575019BC2C2E7017007FCB43 /* IpConfig.swift */,
+				575019C22C2E7A1C007FCB43 /* PingICMP.swift */,
+				575019C02C2E78CD007FCB43 /* PageLoadTimer.swift */,
+				575019BE2C2E779C007FCB43 /* DnsLookup.swift */,
+				575019C42C2E7AA4007FCB43 /* PortScan.swift */,
+				575019C62C2E7B70007FCB43 /* Traceroute.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
 		57566ACB2C115F2E00EABAC3 /* dto */ = {
 			isa = PBXGroup;
 			children = (
+				575019BA2C2E6A73007FCB43 /* WifiInfoDTO.swift */,
+				57566AD62C11724000EABAC3 /* PageLoadDTO.swift */,
 				57566ACC2C115F5800EABAC3 /* PingDTO.swift */,
 				57566ACE2C115F6800EABAC3 /* TraceHopDTO.swift */,
-				57566AD62C11724000EABAC3 /* PageLoadDTO.swift */,
+				575CE0052C350AE200F7620A /* PortDTO.swift */,
+				57C426282C35E012009FE37A /* ObjectDataDTO.swift */,
 			);
 			path = dto;
 			sourceTree = "<group>";
@@ -65,6 +108,7 @@
 			children = (
 				579FD2C02C0F129400021973 /* PTNetFramework */,
 				579FD2BF2C0F129400021973 /* Products */,
+				5720118C2C291EC600D1D332 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,10 +123,12 @@
 		579FD2C02C0F129400021973 /* PTNetFramework */ = {
 			isa = PBXGroup;
 			children = (
+				575019B92C2E6A23007FCB43 /* controller */,
 				57566ACB2C115F2E00EABAC3 /* dto */,
 				579FD2CA2C0F12CE00021973 /* services */,
 				579FD2C12C0F129400021973 /* PTNetFramework.h */,
 				579FD2C22C0F129400021973 /* PTNetFramework.docc */,
+				572FB18D2C3542B4001E1DD1 /* LibraryHandler.swift */,
 			);
 			path = PTNetFramework;
 			sourceTree = "<group>";
@@ -186,15 +232,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				575019C32C2E7A1C007FCB43 /* PingICMP.swift in Sources */,
+				575019C12C2E78CD007FCB43 /* PageLoadTimer.swift in Sources */,
 				57566AD72C11724000EABAC3 /* PageLoadDTO.swift in Sources */,
+				575019C52C2E7AA4007FCB43 /* PortScan.swift in Sources */,
 				579FD2CC2C0F12E000021973 /* IpConfigService.swift in Sources */,
+				575019BF2C2E779C007FCB43 /* DnsLookup.swift in Sources */,
 				57566AD32C1161DC00EABAC3 /* DnsLookUpService.swift in Sources */,
 				57566ADD2C1802B700EABAC3 /* TracerouteService.swift in Sources */,
 				57566ACF2C115F6800EABAC3 /* TraceHopDTO.swift in Sources */,
 				57566ADF2C18030400EABAC3 /* PortScanService.swift in Sources */,
+				575CE0062C350AE200F7620A /* PortDTO.swift in Sources */,
 				57566ACD2C115F5800EABAC3 /* PingDTO.swift in Sources */,
+				575019BB2C2E6A73007FCB43 /* WifiInfoDTO.swift in Sources */,
+				575019BD2C2E7017007FCB43 /* IpConfig.swift in Sources */,
+				575019C72C2E7B70007FCB43 /* Traceroute.swift in Sources */,
 				579FD2C32C0F129400021973 /* PTNetFramework.docc in Sources */,
+				572FB18E2C3542B4001E1DD1 /* LibraryHandler.swift in Sources */,
 				57566AD92C11725000EABAC3 /* PageLoadService.swift in Sources */,
+				57C426292C35E012009FE37A /* ObjectDataDTO.swift in Sources */,
 				57566AD12C11610700EABAC3 /* PingService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,9 +395,14 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -353,14 +414,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ftel.PTNetFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -376,9 +437,14 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,14 +456,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ftel.PTNetFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "$(AVAILABLE_PLATFORMS)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = YES;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3,4,6,7";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};

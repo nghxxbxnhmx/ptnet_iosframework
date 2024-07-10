@@ -2,13 +2,11 @@ import Foundation
 import Network
 
 class PortScanService {
-    private let maxConcurrentConnections = 10
-    private var activeConnections = 0
     private let connectionSemaphore = DispatchSemaphore(value: 1)
     
-    func execute(address: String, port: Int, timeOut: TimeInterval) -> String {
+    func execute(address: String, port: Int, timeOut: Double) -> PortDTO {
         let semaphore = DispatchSemaphore(value: 0)
-        var result: String = ""
+        var result: PortDTO = PortDTO(address: address, port: port, open: false)
         
         portScan(address: address, port: port, timeOut: timeOut) { scanResult in
             result = scanResult
@@ -19,18 +17,11 @@ class PortScanService {
         return result
     }
     
-    private func portScan(address: String, port: Int, timeOut: TimeInterval, completion: @escaping (String) -> Void) {
+    private func portScan(address: String, port: Int, timeOut: Double, completion: @escaping (PortDTO) -> Void) {
         connectionSemaphore.wait()
         defer {
             connectionSemaphore.signal()
         }
-        
-        guard activeConnections < maxConcurrentConnections else {
-            completion("")
-            return
-        }
-        
-        activeConnections += 1
         
         let queue = DispatchQueue.global(qos: .background)
         queue.async {
@@ -48,7 +39,8 @@ class PortScanService {
                 if !hasCompleted {
                     hasCompleted = true
                     connection.cancel()
-                    completion("")
+                    let portDTO = PortDTO(address: address, port: port, open: false)
+                    completion(portDTO)
                 }
             }
             queue.asyncAfter(deadline: .now() + timeOut, execute: timeoutWorkItem)
@@ -58,14 +50,16 @@ class PortScanService {
                 case .ready:
                     if !hasCompleted {
                         hasCompleted = true
-                        completion("\(port)")
+                        let portDTO = PortDTO(address: address, port: port, open: true)
+                        completion(portDTO)
                         connection.cancel()
                         timeoutWorkItem.cancel()
                     }
                 case .failed, .cancelled:
                     if !hasCompleted {
                         hasCompleted = true
-                        completion("")
+                        let portDTO = PortDTO(address: address, port: port, open: false)
+                        completion(portDTO)
                         timeoutWorkItem.cancel()
                     }
                 default:

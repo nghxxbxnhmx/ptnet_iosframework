@@ -1,11 +1,26 @@
 import Foundation
 import NetDiagnosis
 
-class PingService {
-    func execute(address: String, completion: @escaping (PingDTO) -> Void) {
-        if let ipAddress = DnsLookUpService().execute(domain: address).first {
+public protocol PingServiceProtocol {
+    func execute(address: String, completion: @escaping (PingDTO) -> Void)
+}
+
+public class PingService: PingServiceProtocol {
+    private let dnsLookUpService: DnsLookUpServiceProtocol
+    
+    public init(dnsLookUpService: DnsLookUpServiceProtocol = DnsLookUpService()) {
+        self.dnsLookUpService = dnsLookUpService
+    }
+    
+    public func execute(address: String, completion: @escaping (PingDTO) -> Void) {
+        dnsLookUpService.execute(domain: address) { [weak self] ipAddress in
+            guard let self = self, let ipAddress = ipAddress.first else {
+                completion(PingDTO(address: address, ip: "", time: -1))
+                return
+            }
+            
             guard let remoteAddr = IPAddr.create(ipAddress, addressFamily: .ipv4) else {
-                completion(PingDTO(address: ipAddress, ip: "", time: -1))
+                completion(PingDTO(address: address, ip: "", time: -1))
                 return
             }
             
@@ -20,7 +35,6 @@ class PingService {
             } catch {
                 completion(PingDTO(address: address, ip: "", time: -1))
             }
-
         }
     }
     
@@ -32,9 +46,7 @@ class PingService {
         case .hopLimitExceeded(let response):
             let roundedRTT = Double(round(1000 * response.rtt * 1000) / 1000)
             return PingDTO(address: address, ip: response.from.description, time: roundedRTT)
-        case .timeout:
-            return PingDTO(address: address, ip: "", time: -1)
-        case .failed:
+        case .timeout, .failed:
             return PingDTO(address: address, ip: "", time: -1)
         }
     }

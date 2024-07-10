@@ -1,35 +1,26 @@
 import Foundation
 import Network
 import SystemConfiguration.CaptiveNetwork
-
+import NetworkExtension
+import CoreLocation
 
 class IpConfigService {
+    init(){}
     func getIPAddress() -> String {
         var address: String? = ""
         
-        // Get list of all interfaces on the local machine:
         var ifaddr: UnsafeMutablePointer<ifaddrs>?
         guard getifaddrs(&ifaddr) == 0 else { return "N/A" }
         defer { freeifaddrs(ifaddr) }
         
         guard let firstAddr = ifaddr else { return "N/A" }
         
-        // For each interface ...
         for ifptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
             let interface = ifptr.pointee
-            
-            // Check for IPv4 interface:
             let addrFamily = interface.ifa_addr.pointee.sa_family
             if addrFamily == UInt8(AF_INET) {
-                
-                // Check interface name:
-                // wifi = ["en0"]
-                // wired = ["en2", "en3", "en4"]
-                // cellular = ["pdp_ip0","pdp_ip1","pdp_ip2","pdp_ip3"]
                 let name = String(cString: interface.ifa_name)
-                if name == "en0" || name == "en2" || name == "en3" || name == "en4" || name == "pdp_ip0" || name == "pdp_ip1" || name == "pdp_ip2" || name == "pdp_ip3" {
-                    
-                    // Convert interface address to a human readable string:
+                if name == "en0" {
                     var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
                     let result = getnameinfo(interface.ifa_addr, socklen_t(interface.ifa_addr.pointee.sa_len),
                                              &hostname, socklen_t(hostname.count),
@@ -46,55 +37,44 @@ class IpConfigService {
     }
     
     
-     func getSubnetMask() -> String {
-         // Code for getting subnet mask...
-         var subnetMask: String?
-         
-         // Get list of all interfaces on the local machine:
-         var ifaddr: UnsafeMutablePointer<ifaddrs>?
-         guard getifaddrs(&ifaddr) == 0 else { return "N/A" }
-         defer { freeifaddrs(ifaddr) }
-         
-         guard let firstAddr = ifaddr else { return "N/A" }
-         
-         // For each interface ...
-         for ifptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
-             let interface = ifptr.pointee
-             
-             // Check for IPv4 interface:
-             let addrFamily = interface.ifa_addr.pointee.sa_family
-             if addrFamily == UInt8(AF_INET) {
-                 
-                 // Check interface name:
-                 // wifi = ["en0"]
-                 // wired = ["en2", "en3", "en4"]
-                 // cellular = ["pdp_ip0","pdp_ip1","pdp_ip2","pdp_ip3"]
-                 let name = String(cString: interface.ifa_name)
-                 if name == "en0" || name == "en2" || name == "en3" || name == "en4" || name == "pdp_ip0" || name == "pdp_ip1" || name == "pdp_ip2" || name == "pdp_ip3" {
-                     
-                     // Convert interface netmask to a human readable string:
-                     var netmask = [CChar](repeating: 0, count: Int(NI_MAXHOST))
-                     let result = getnameinfo(interface.ifa_netmask, socklen_t(interface.ifa_netmask.pointee.sa_len),
-                                              &netmask, socklen_t(netmask.count),
-                                              nil, socklen_t(0), NI_NUMERICHOST)
-                     if result == 0 {
-                         subnetMask = String(cString: netmask)
-                         break
-                     }
-                 }
-             }
-         }
-         
-         return subnetMask ?? "N/A"
-     }
+    func getSubnetMask() -> String {
+        var subnetMask: String?
+        
+        var ifaddr: UnsafeMutablePointer<ifaddrs>?
+        guard getifaddrs(&ifaddr) == 0 else { return "N/A" }
+        defer { freeifaddrs(ifaddr) }
+        
+        guard let firstAddr = ifaddr else { return "N/A" }
+        
+        for ifptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
+            let interface = ifptr.pointee
+            let addrFamily = interface.ifa_addr.pointee.sa_family
+            if addrFamily == UInt8(AF_INET) {
+                let name = String(cString: interface.ifa_name)
+                if name == "en0" {
+                    var netmask = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+                    let result = getnameinfo(interface.ifa_netmask, socklen_t(interface.ifa_netmask.pointee.sa_len),
+                                             &netmask, socklen_t(netmask.count),
+                                             nil, socklen_t(0), NI_NUMERICHOST)
+                    if result == 0 {
+                        subnetMask = String(cString: netmask)
+                        break
+                    }
+                }
+            }
+        }
+        
+        return subnetMask ?? "N/A"
+    }
     
-    func getDefaultGateway() -> String {
+    func getDefaultGateway(completion: @escaping (String) -> Void) {
         let monitor = NWPathMonitor(requiredInterfaceType: .wifi)
         monitor.pathUpdateHandler = { path in
-            print(path.gateways)
+            let gateways = path.gateways.map { $0.debugDescription }.joined(separator: ", ")
+            completion(gateways)
+            monitor.cancel()
         }
-        monitor.start(queue: DispatchQueue(label: "nwpathmonitor.queue"))
-        return "N/A"
+        monitor.start(queue: DispatchQueue.global(qos: .background))
     }
 
     
@@ -128,18 +108,22 @@ class IpConfigService {
         return bssid ?? "N/A"
     }
     
-    func getExternalIpAddress() -> String {
-        let url = URL(string: "https://api.ipify.org")
-        do {
-            if let url = url {
-                let ipAddress = try String(contentsOf: url)
-                print("My public IP address is: " + ipAddress)
-                return ipAddress
-            }
-        } catch let error {
-            print(error)
-            return "N/A"
+    func getExternalIpAddress(completion: @escaping (String) -> Void) {
+        guard let url = URL(string: "https://api.ipify.org") else {
+            completion("N/A")
+            return
         }
-        return "N/A"
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                completion("N/A")
+                return
+            }
+            if let data = data, let ipAddress = String(data: data, encoding: .utf8) {
+                completion(ipAddress)
+            } else {
+                completion("N/A")
+            }
+        }
+        task.resume()
     }
 }

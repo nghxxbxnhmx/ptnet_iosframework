@@ -1,7 +1,12 @@
 import NetDiagnosis
 
-class DnsLookUpService {
-    func execute(domain: String) -> [String] {
+public protocol DnsLookUpServiceProtocol {
+    func execute(domain: String, completion: @escaping ([String]) -> Void)
+}
+
+public class DnsLookUpService : DnsLookUpServiceProtocol {
+    public init(){}
+    public func execute(domain: String, completion: @escaping ([String]) -> Void) {
         do {
             let ipv4Result = try IPAddr.resolve(domainName: domain, addressFamily: .ipv4)
             var uniqueIPs = Set<String>()
@@ -12,9 +17,9 @@ class DnsLookUpService {
             for item in uniqueIPs {
                 responses.append(item)
             }
-            return responses
+            completion(responses)
         } catch {
-            return [String]()
+            completion([String]())
         }
     }
 }

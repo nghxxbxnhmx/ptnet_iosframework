@@ -1,7 +1,8 @@
 import Foundation
 
-class PageLoadService {
-    func pageLoadTimer(address: String) -> PageLoadDTO {
+public class PageLoadService {
+    public init(){}
+    public func pageLoadTimer(address: String) -> PageLoadDTO {
         let startTime = Date()
 
         guard let url = URL(string: address) else {
